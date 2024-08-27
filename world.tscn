@@ -1,3 +1,15 @@
-[gd_scene format=3 uid="uid://bis831fuvgqiv"]
+[gd_scene load_steps=3 format=3 uid="uid://bis831fuvgqiv"]
+
+[ext_resource type="Script" path="res://ball.gd" id="1_gd0e8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s2hfa"]
+radius = 100.0
 
 [node name="World" type="Node2D"]
+
+[node name="Ball" type="RigidBody2D" parent="."]
+position = Vector2(446, 47)
+script = ExtResource("1_gd0e8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource("CircleShape2D_s2hfa")
