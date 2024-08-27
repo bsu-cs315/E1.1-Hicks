@@ -19,20 +19,20 @@ size = Vector2(365, 112)
 [node name="World" type="Node2D"]
 
 [node name="Ball" type="RigidBody2D" parent="."]
-position = Vector2(446, 47)
+position = Vector2(3, -306)
 script = SubResource("GDScript_58es0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
 shape = SubResource("CircleShape2D_s2hfa")
 
 [node name="AlienGreenRound" type="Sprite2D" parent="Ball"]
-position = Vector2(-106, -107)
+position = Vector2(-105, -94)
 scale = Vector2(3.05357, 3.03571)
 texture = ExtResource("2_075d2")
 centered = false
 
 [node name="Obstacle" type="StaticBody2D" parent="."]
-position = Vector2(428, 223)
+position = Vector2(-2, 453)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle"]
 light_mask = 9
@@ -40,6 +40,6 @@ position = Vector2(0.5, 42)
 shape = SubResource("RectangleShape2D_wp5oj")
 
 [node name="Wooden Element" type="Sprite2D" parent="Obstacle"]
-position = Vector2(2.5, 39)
+position = Vector2(0, 40)
 scale = Vector2(2.66429, 1.62857)
 texture = ExtResource("1_j1jrj")

@@ -1,4 +1,6 @@
 extends RigidBody2D
 
-func _draw() -> void:
-	draw_circle(Vector2.ZERO,$CollisionShape2D.shape.radius,Color.RED)
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("launch"):
+		var impulse=Vector2(1,-1)*200
+		apply_impulse(impulse,Vector2.ZERO)
