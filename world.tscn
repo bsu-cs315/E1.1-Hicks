@@ -1,6 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bis831fuvgqiv"]
+[gd_scene load_steps=6 format=3 uid="uid://bis831fuvgqiv"]
 
-[ext_resource type="Script" path="res://ball.gd" id="1_gd0e8"]
+[ext_resource type="Texture2D" uid="uid://cwbnpif2phjbp" path="res://elementWood011.png" id="1_j1jrj"]
+[ext_resource type="Texture2D" uid="uid://dvu8msiqomhs0" path="res://alienGreen_round.png" id="2_075d2"]
+
+[sub_resource type="GDScript" id="GDScript_58es0"]
+script/source = "extends RigidBody2D
+
+func _draw() -> void:
+	draw_circle(Vector2.ZERO,$CollisionShape2D.shape.radius,Color.RED)
+"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s2hfa"]
 radius = 100.0
@@ -12,10 +20,16 @@ size = Vector2(365, 112)
 
 [node name="Ball" type="RigidBody2D" parent="."]
 position = Vector2(446, 47)
-script = ExtResource("1_gd0e8")
+script = SubResource("GDScript_58es0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
 shape = SubResource("CircleShape2D_s2hfa")
+
+[node name="AlienGreenRound" type="Sprite2D" parent="Ball"]
+position = Vector2(-106, -107)
+scale = Vector2(3.05357, 3.03571)
+texture = ExtResource("2_075d2")
+centered = false
 
 [node name="Obstacle" type="StaticBody2D" parent="."]
 position = Vector2(428, 223)
@@ -24,3 +38,8 @@ position = Vector2(428, 223)
 light_mask = 9
 position = Vector2(0.5, 42)
 shape = SubResource("RectangleShape2D_wp5oj")
+
+[node name="Wooden Element" type="Sprite2D" parent="Obstacle"]
+position = Vector2(2.5, 39)
+scale = Vector2(2.66429, 1.62857)
+texture = ExtResource("1_j1jrj")
