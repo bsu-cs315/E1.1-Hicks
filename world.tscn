@@ -1,45 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://bis831fuvgqiv"]
+[gd_scene load_steps=6 format=4 uid="uid://bis831fuvgqiv"]
 
-[ext_resource type="Texture2D" uid="uid://cwbnpif2phjbp" path="res://elementWood011.png" id="1_j1jrj"]
-[ext_resource type="Texture2D" uid="uid://dvu8msiqomhs0" path="res://alienGreen_round.png" id="2_075d2"]
+[ext_resource type="Script" path="res://world.gd" id="1_e1w7p"]
+[ext_resource type="Texture2D" uid="uid://jk3pldokj1fi" path="res://elementStone011.png" id="2_4gou7"]
+[ext_resource type="PackedScene" uid="uid://dtl8n6d4a30q3" path="res://ball.tscn" id="2_76ynu"]
 
-[sub_resource type="GDScript" id="GDScript_58es0"]
-script/source = "extends RigidBody2D
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_71ufx"]
+texture = ExtResource("2_4gou7")
+texture_region_size = Vector2i(70, 70)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-35, -35, 35, -35, 35, 35, -35, 35)
 
-func _draw() -> void:
-	draw_circle(Vector2.ZERO,$CollisionShape2D.shape.radius,Color.RED)
-"
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_s2hfa"]
-radius = 100.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wp5oj"]
-size = Vector2(365, 112)
+[sub_resource type="TileSet" id="TileSet_r3p2p"]
+tile_size = Vector2i(70, 70)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_71ufx")
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_e1w7p")
 
-[node name="Ball" type="RigidBody2D" parent="."]
-position = Vector2(3, -306)
-script = SubResource("GDScript_58es0")
+[node name="Ball" parent="." instance=ExtResource("2_76ynu")]
+position = Vector2(108, 75)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
-shape = SubResource("CircleShape2D_s2hfa")
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAIAAIAAAAAAAAAAAAJAAIAAAAAAAAAAAAKAAIAAAAAAAAAAAALAAIAAAAAAAAAAAAMAAIAAAAAAAAAAAABAAIAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_r3p2p")
 
-[node name="AlienGreenRound" type="Sprite2D" parent="Ball"]
-position = Vector2(-105, -94)
-scale = Vector2(3.05357, 3.03571)
-texture = ExtResource("2_075d2")
-centered = false
-
-[node name="Obstacle" type="StaticBody2D" parent="."]
-position = Vector2(-2, 453)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle"]
-light_mask = 9
-position = Vector2(0.5, 42)
-shape = SubResource("RectangleShape2D_wp5oj")
-
-[node name="Wooden Element" type="Sprite2D" parent="Obstacle"]
-position = Vector2(0, 40)
-scale = Vector2(2.66429, 1.62857)
-texture = ExtResource("1_j1jrj")
+[node name="PowerLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "POWER"
