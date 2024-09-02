@@ -26,7 +26,8 @@ physics_layer_1/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_71ufx")
 sources/1 = SubResource("TileSetAtlasSource_y8nd6")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fmbpg"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p150v"]
+size = Vector2(73, 53.125)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_e1w7p")
@@ -44,19 +45,71 @@ offset_bottom = 23.0
 text = "POWER"
 
 [node name="TML2" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAYAAAAAAAAAAAACAAYAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAIAAYAAAAAAAAAAAAJAAYAAAAAAAAAAAAKAAYAAAAAAAAAAAALAAYAAAAAAAAAAAAMAAYAAAAAAAAAAAABAAYAAAAAAAAAAAAMAAAAAQAAAAAAAAAMAAEAAQAAAAAAAAAMAAIAAQAAAAAAAAAMAAMAAQAAAAAAAAAMAAQAAQAAAAAAAAAMAAUAAQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAYAAAAAAAAAAAACAAYAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAIAAYAAAAAAAAAAAAJAAYAAAAAAAAAAAAKAAYAAAAAAAAAAAALAAYAAAAAAAAAAAAMAAYAAAAAAAAAAAABAAYAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_r3p2p")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(108, 75)
-disable_mode = 1
-collision_layer = 3
-collision_mask = 3
+[node name="WoodPieceOne" type="RigidBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-shape = SubResource("RectangleShape2D_fmbpg")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WoodPieceOne"]
+position = Vector2(875, 39)
+shape = SubResource("RectangleShape2D_p150v")
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D/CollisionShape2D"]
-position = Vector2(652, -28)
-scale = Vector2(0.421429, 0.914285)
+[node name="Sprite2D" type="Sprite2D" parent="WoodPieceOne/CollisionShape2D"]
+position = Vector2(3.25002, 2)
+scale = Vector2(0.560714, 1)
+texture = ExtResource("4_x87gi")
+
+[node name="WoodPieceOne2" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WoodPieceOne2"]
+position = Vector2(875, 113)
+shape = SubResource("RectangleShape2D_p150v")
+
+[node name="Sprite2D" type="Sprite2D" parent="WoodPieceOne2/CollisionShape2D"]
+position = Vector2(2.28882e-05, -1)
+scale = Vector2(0.560714, 1)
+texture = ExtResource("4_x87gi")
+
+[node name="WoodPieceOne3" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WoodPieceOne3"]
+position = Vector2(872, 186)
+shape = SubResource("RectangleShape2D_p150v")
+
+[node name="Sprite2D" type="Sprite2D" parent="WoodPieceOne3/CollisionShape2D"]
+position = Vector2(1.00002, 0)
+scale = Vector2(0.560714, 1)
+texture = ExtResource("4_x87gi")
+
+[node name="WoodPieceOne4" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WoodPieceOne4"]
+position = Vector2(870, 259)
+shape = SubResource("RectangleShape2D_p150v")
+
+[node name="Sprite2D" type="Sprite2D" parent="WoodPieceOne4/CollisionShape2D"]
+position = Vector2(2.12789e-05, 0)
+scale = Vector2(0.560714, 1)
+texture = ExtResource("4_x87gi")
+
+[node name="WoodPieceOne5" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WoodPieceOne5"]
+position = Vector2(866, 330)
+shape = SubResource("RectangleShape2D_p150v")
+
+[node name="Sprite2D" type="Sprite2D" parent="WoodPieceOne5/CollisionShape2D"]
+position = Vector2(1.00002, -1)
+scale = Vector2(0.560714, 1)
+texture = ExtResource("4_x87gi")
+
+[node name="WoodPieceOne6" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WoodPieceOne6"]
+position = Vector2(872, 392.438)
+shape = SubResource("RectangleShape2D_p150v")
+
+[node name="Sprite2D" type="Sprite2D" parent="WoodPieceOne6/CollisionShape2D"]
+position = Vector2(2.00002, -0.4375)
+scale = Vector2(0.560714, 0.7)
 texture = ExtResource("4_x87gi")
