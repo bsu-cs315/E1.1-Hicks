@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://bis831fuvgqiv"]
+[gd_scene load_steps=9 format=4 uid="uid://bis831fuvgqiv"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_e1w7p"]
 [ext_resource type="Texture2D" uid="uid://jk3pldokj1fi" path="res://elementStone011.png" id="2_4gou7"]
 [ext_resource type="PackedScene" uid="uid://dtl8n6d4a30q3" path="res://ball.tscn" id="2_76ynu"]
+[ext_resource type="Texture2D" uid="uid://cwbnpif2phjbp" path="res://elementWood011.png" id="4_x87gi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_71ufx"]
 texture = ExtResource("2_4gou7")
@@ -10,10 +11,22 @@ texture_region_size = Vector2i(70, 70)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-35, -35, 35, -35, 35, 35, -35, 35)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y8nd6"]
+texture = ExtResource("4_x87gi")
+texture_region_size = Vector2i(70, 70)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-35, -35, 35, -35, 35, 35, -35, 35)
+
 [sub_resource type="TileSet" id="TileSet_r3p2p"]
 tile_size = Vector2i(70, 70)
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 3
+physics_layer_1/collision_layer = 1
+physics_layer_1/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_71ufx")
+sources/1 = SubResource("TileSetAtlasSource_y8nd6")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fmbpg"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_e1w7p")
@@ -22,10 +35,28 @@ script = ExtResource("1_e1w7p")
 position = Vector2(108, 75)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAMAAIAAAAAAAAAAAALAAIAAAAAAAAAAAAKAAIAAAAAAAAAAAAJAAIAAAAAAAAAAAAIAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAADAAIAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAYAAAAAAAAAAAACAAYAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAIAAYAAAAAAAAAAAAJAAYAAAAAAAAAAAAKAAYAAAAAAAAAAAALAAYAAAAAAAAAAAAMAAYAAAAAAAAAAAABAAYAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_r3p2p")
 
 [node name="PowerLabel" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
 text = "POWER"
+
+[node name="TML2" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAYAAAAAAAAAAAACAAYAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAIAAYAAAAAAAAAAAAJAAYAAAAAAAAAAAAKAAYAAAAAAAAAAAALAAYAAAAAAAAAAAAMAAYAAAAAAAAAAAABAAYAAAAAAAAAAAAMAAAAAQAAAAAAAAAMAAEAAQAAAAAAAAAMAAIAAQAAAAAAAAAMAAMAAQAAAAAAAAAMAAQAAQAAAAAAAAAMAAUAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_r3p2p")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(108, 75)
+disable_mode = 1
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_fmbpg")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D/CollisionShape2D"]
+position = Vector2(652, -28)
+scale = Vector2(0.421429, 0.914285)
+texture = ExtResource("4_x87gi")
