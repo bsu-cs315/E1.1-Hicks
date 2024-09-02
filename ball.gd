@@ -11,5 +11,7 @@ func _process(delta: float) -> void:
 	
 	
 	if Input.is_action_just_pressed("launch"):
-		var impulse=Vector2(1,0)*power
+		var x_cor=Input.get_action_strength("move_left") - Input.get_action_strength("move_right")
+		var y_cor=Input.get_action_strength("move_up") - Input.get_action_strength("move_down")
+		var impulse=Vector2(x_cor,y_cor)*power
 		apply_impulse(impulse.rotated(-TAU/8))
