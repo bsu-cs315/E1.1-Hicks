@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://bis831fuvgqiv"]
+[gd_scene load_steps=11 format=4 uid="uid://bis831fuvgqiv"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_e1w7p"]
 [ext_resource type="Texture2D" uid="uid://jk3pldokj1fi" path="res://elementStone011.png" id="2_4gou7"]
 [ext_resource type="PackedScene" uid="uid://dtl8n6d4a30q3" path="res://ball.tscn" id="2_76ynu"]
 [ext_resource type="Texture2D" uid="uid://cwbnpif2phjbp" path="res://elementWood011.png" id="4_x87gi"]
+[ext_resource type="Texture2D" uid="uid://c37ymouxj1ffd" path="res://alienYellow_square.png" id="5_nibns"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_71ufx"]
 texture = ExtResource("2_4gou7")
@@ -29,6 +30,9 @@ sources/1 = SubResource("TileSetAtlasSource_y8nd6")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p150v"]
 size = Vector2(73, 53.125)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7jay"]
+size = Vector2(68, 70)
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_e1w7p")
 
@@ -48,68 +52,56 @@ text = "POWER"
 tile_map_data = PackedByteArray("AAAAAAYAAAAAAAAAAAACAAYAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAIAAYAAAAAAAAAAAAJAAYAAAAAAAAAAAAKAAYAAAAAAAAAAAALAAYAAAAAAAAAAAAMAAYAAAAAAAAAAAABAAYAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_r3p2p")
 
-[node name="WoodPieceOne" type="RigidBody2D" parent="."]
+[node name="WP1" type="RigidBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WoodPieceOne"]
-position = Vector2(875, 39)
-shape = SubResource("RectangleShape2D_p150v")
-
-[node name="Sprite2D" type="Sprite2D" parent="WoodPieceOne/CollisionShape2D"]
-position = Vector2(3.25002, 2)
-scale = Vector2(0.560714, 1)
-texture = ExtResource("4_x87gi")
-
-[node name="WoodPieceOne2" type="RigidBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WoodPieceOne2"]
-position = Vector2(875, 113)
-shape = SubResource("RectangleShape2D_p150v")
-
-[node name="Sprite2D" type="Sprite2D" parent="WoodPieceOne2/CollisionShape2D"]
-position = Vector2(2.28882e-05, -1)
-scale = Vector2(0.560714, 1)
-texture = ExtResource("4_x87gi")
-
-[node name="WoodPieceOne3" type="RigidBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WoodPieceOne3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WP1"]
 position = Vector2(872, 186)
 shape = SubResource("RectangleShape2D_p150v")
 
-[node name="Sprite2D" type="Sprite2D" parent="WoodPieceOne3/CollisionShape2D"]
+[node name="Sprite2D" type="Sprite2D" parent="WP1/CollisionShape2D"]
 position = Vector2(1.00002, 0)
 scale = Vector2(0.560714, 1)
 texture = ExtResource("4_x87gi")
 
-[node name="WoodPieceOne4" type="RigidBody2D" parent="."]
+[node name="WP2" type="RigidBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WoodPieceOne4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WP2"]
 position = Vector2(870, 259)
 shape = SubResource("RectangleShape2D_p150v")
 
-[node name="Sprite2D" type="Sprite2D" parent="WoodPieceOne4/CollisionShape2D"]
+[node name="Sprite2D" type="Sprite2D" parent="WP2/CollisionShape2D"]
 position = Vector2(2.12789e-05, 0)
 scale = Vector2(0.560714, 1)
 texture = ExtResource("4_x87gi")
 
-[node name="WoodPieceOne5" type="RigidBody2D" parent="."]
+[node name="WP3" type="RigidBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WoodPieceOne5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WP3"]
 position = Vector2(866, 330)
 shape = SubResource("RectangleShape2D_p150v")
 
-[node name="Sprite2D" type="Sprite2D" parent="WoodPieceOne5/CollisionShape2D"]
+[node name="Sprite2D" type="Sprite2D" parent="WP3/CollisionShape2D"]
 position = Vector2(1.00002, -1)
 scale = Vector2(0.560714, 1)
 texture = ExtResource("4_x87gi")
 
-[node name="WoodPieceOne6" type="RigidBody2D" parent="."]
+[node name="WP4" type="RigidBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WoodPieceOne6"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WP4"]
 position = Vector2(872, 392.438)
 shape = SubResource("RectangleShape2D_p150v")
 
-[node name="Sprite2D" type="Sprite2D" parent="WoodPieceOne6/CollisionShape2D"]
+[node name="Sprite2D" type="Sprite2D" parent="WP4/CollisionShape2D"]
 position = Vector2(2.00002, -0.4375)
 scale = Vector2(0.560714, 0.7)
 texture = ExtResource("4_x87gi")
+
+[node name="Enemy" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+position = Vector2(871, 121)
+shape = SubResource("RectangleShape2D_w7jay")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy/CollisionShape2D"]
+position = Vector2(4, 1)
+texture = ExtResource("5_nibns")
