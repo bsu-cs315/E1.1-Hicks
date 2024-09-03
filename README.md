@@ -1,5 +1,5 @@
 # CS 315 Demo
-## THird Party Assets
+## Third Party Assets
 Devlin Hicks's Exercise 1.1
 Report:
 	This exercise is a demonstration of 2D game physics. The game has a resemblance in some aspects to
