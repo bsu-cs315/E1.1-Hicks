@@ -5,7 +5,8 @@ Devlin Hicks's Exercise 1.1 Report:
 	The goal is to knock these pieces down and have them fall over. This is accomplished by having rigid bodies, collision shapes, and sprites. 
 	You use the W, A, S, and D keys to control the direction of the ball and the space bar to launch the ball.
 	There is also a power indicator at the top left of the screen. 
-	If you press the up and down arrows, you can increase or decrease the power the ball launches at.
+	If you press the up and down arrows, you can increase or decrease the power the ball launches at. In addition, there is now an enemy on top of the wooden pieces. 
+	The goal is to to knock him off of the blocks. Alternatively, you can knock over the boxes. 
 	The purpose of this game is to fulfill a series of objectives laid out for us.
 	 These would include controls,
 	proper licenses, and more. 
